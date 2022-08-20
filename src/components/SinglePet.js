@@ -1,14 +1,25 @@
 import React from 'react';
 
-function SinglePet() {
-  //const [list, setList] =React.useState([])
+function SinglePet(props) {
+  
+  const [adopted, setAdopted] =React.useState(true);
+  
+
   return (
-    <div className={`single-pet`}>
-        {/* <h1>{props.pet.name}</h1>
-        <h2>{props.pet.species}</h2>
-        <p>{props.pet.description}</p>   */}
+    
+
+    <div className={adopted ? "single-pet": "single-pet" +" adopted"}>
+        <h1>{props.pet.name} the {props.pet.species} </h1>
+        <p>{props.pet.description}</p>
+      
+          <p>{adopted ? "Available!":"Adopted!"}</p>  
+        
+        <button onClick = {()=>setAdopted(!adopted)}>Toggle Status</button>
+
     </div>
   );
+
+
 }
 
 export default SinglePet;
